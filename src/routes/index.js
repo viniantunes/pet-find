@@ -1,14 +1,15 @@
-import React from "react";
-import { View, ActivityIndicator } from 'react-native';
+import React, { useContext } from "react";
 
-import AuthRoutes from "./auth.routes";
+import { AuthContext } from "../contexts/auth";
+
+import AppRoutes from "./app.routes";
+import SignIn from "../pages/SignIn";
 
 function Routes(){
-    const loading = false;
-    const signed = false;
+    const { signed } = useContext(AuthContext);
 
     return(
-        signed ? <View></View> : <AuthRoutes />
+        signed ? <AppRoutes /> : <SignIn />
     )
 }
 

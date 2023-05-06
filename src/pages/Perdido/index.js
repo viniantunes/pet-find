@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { StyleSheet } from "react-native";
 import { 
     Background, 
     Container, 
@@ -7,49 +8,21 @@ import {
     OrangeButton, 
     WhiteText, 
     Foto, 
-    AreaFoto, 
-    AreaDateTime,
-    DateTimeButton,
-    BlackText
+    AreaFoto
  } from './styles';
 import * as ImagePicker from 'expo-image-picker';
-import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
+import { TextInputMask } from 'react-native-masked-text'
 
 export default function Perdido(){
     const [foto, setFoto] = useState(null);
     const [nome, setNome] = useState('');
     const [descricao, setDescricao] = useState('');
-    const [vistoUltimo, setVistoUltimo] = useState(new Date());
-    const [data, setData] = useState('Selecione o dia');
-    const [horario, setHorario] = useState('Selecione o horário');
+    const [vistoUltimo, setVistoUltimo] = useState('');
+    const [contato, setContato] = useState('');
 
     function handleCadastrar(){
         alert('cadastrado');
     }
-
-    function onChange(event, selectedDate){
-        const currentDate = selectedDate;
-        setVistoUltimo(currentDate);
-        setData(vistoUltimo.toLocaleDateString());
-        setHorario(vistoUltimo.toLocaleTimeString());
-      };
-
-    function showMode(currentMode){
-        DateTimePickerAndroid.open({
-            value: vistoUltimo,
-            onChange,
-            mode: currentMode,
-            is24Hour: true,
-      });
-    };
-    
-    function showDatepicker(){
-      showMode('date');
-    };
-    
-    function showTimepicker(){
-      showMode('time');
-    };          
 
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -77,7 +50,7 @@ export default function Perdido(){
                     <Input 
                         placeholder="Nome" 
                         value={nome} 
-                        onChangeText={(text) => setNome(text)} 
+                        onChangeText={(text) => setNome(text)}
                     />                                                       
                 </AreaInput>
                 <AreaInput>
@@ -87,15 +60,28 @@ export default function Perdido(){
                         onChangeText={(text) => setDescricao(text)} 
                     />
                 </AreaInput>
-                <BlackText>Visto por último:</BlackText>                   
-                <AreaDateTime>
-                    <DateTimeButton onPress={showDatepicker}>
-                        <WhiteText>{data}</WhiteText>
-                    </DateTimeButton>
-                    <DateTimeButton onPress={showTimepicker} >
-                        <WhiteText>{horario}</WhiteText>
-                    </DateTimeButton>
-                </AreaDateTime>
+                <AreaInput>
+                    <Input 
+                        placeholder="Visto por último" 
+                        value={vistoUltimo} 
+                        onChangeText={(text) => setVistoUltimo(text)} 
+                        keyboardType="numeric"
+                    />
+                </AreaInput>
+                <AreaInput>
+                    <TextInputMask
+                        style={styles.input}
+                        type={'cel-phone'}
+                        placeholder="Contato"
+                        options={{
+                            maskType: 'BRL',
+                            withDDD: true,
+                            dddMask: '(99) '
+                        }}
+                        value={contato}
+                        onChangeText={(text) => setContato(text)}
+                    />
+                </AreaInput>                                
                 <OrangeButton activeOpacity={0.8} onPress={handleCadastrar}>
                     <WhiteText>Cadastrar</WhiteText>
                 </OrangeButton>
@@ -103,3 +89,15 @@ export default function Perdido(){
         </Background>
     )
 }
+
+const styles = StyleSheet.create({
+    input:{
+        backgroundColor: '#fff',
+        width: '90%',
+        fontSize: 17,
+        padding: 10,
+        borderRadius: 8,
+        color: '#121212',
+        marginBottom: 15
+    }
+})

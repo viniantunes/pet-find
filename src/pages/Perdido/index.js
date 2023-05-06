@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from '../../contexts/auth';
 import { StyleSheet } from "react-native";
 import { 
     Background, 
@@ -19,9 +20,11 @@ export default function Perdido(){
     const [descricao, setDescricao] = useState('');
     const [vistoUltimo, setVistoUltimo] = useState('');
     const [contato, setContato] = useState('');
+    const { setAnimaisPerdidos } = useContext(AuthContext);
 
     function handleCadastrar(){
-        alert('cadastrado');
+        setAnimaisPerdidos([{ nome: nome, descricao: descricao, vistoUltimo: vistoUltimo, contato: contato, foto: foto}]);
+        alert('CADASTRADO!');
     }
 
     const pickImage = async () => {
@@ -61,11 +64,15 @@ export default function Perdido(){
                     />
                 </AreaInput>
                 <AreaInput>
-                    <Input 
-                        placeholder="Visto por último" 
-                        value={vistoUltimo} 
-                        onChangeText={(text) => setVistoUltimo(text)} 
-                        keyboardType="numeric"
+                    <TextInputMask
+                        style={styles.input}
+                        type={'datetime'}
+                        placeholder="Visto por último"
+                        options={{
+                            format: 'DD/MM/YYYY HH:mm'
+                        }}
+                        value={vistoUltimo}
+                        onChangeText={(text) => setVistoUltimo(text)}
                     />
                 </AreaInput>
                 <AreaInput>

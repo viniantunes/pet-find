@@ -7,6 +7,7 @@ import Perdido from '../pages/Perdido';
 const AppStack = createNativeStackNavigator();
 
 function AppRoutes(){
+    const registros = [];
     return(
         <AppStack.Navigator>
             <AppStack.Screen 
@@ -21,7 +22,7 @@ function AppRoutes(){
                 component={Perdido} 
                 options={{
                     title: 'Reportar animal perdido'
-                }} 
+                }}
             />            
         </AppStack.Navigator>
     )

@@ -7,6 +7,7 @@ function AuthProvider({ children }){
     const userTeste = { nome: 'Teste' };
     const [animaisPerdidos, setAnimaisPerdidos] = useState([]);
     const [animaisEncontrados, setAnimaisEncontrados] = useState([]);
+    const [isPerdido, setPerdido] = useState(false);
 
     function signIn(email, pass){
         pass == 'teste' ? setUser(userTeste) : alert('Dados incorretos!');
@@ -25,7 +26,9 @@ function AuthProvider({ children }){
             animaisEncontrados, 
             animaisPerdidos, 
             setAnimaisEncontrados, 
-            setAnimaisPerdidos 
+            setAnimaisPerdidos,
+            isPerdido,
+            setPerdido 
         }}>
             {children}
         </AuthContext.Provider>

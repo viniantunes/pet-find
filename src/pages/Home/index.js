@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
+import { AuthContext } from "../../contexts/auth";
 
 import Header from "../../components/Header";
 import MenuItem from "../../components/MenuItem";
@@ -8,6 +9,17 @@ import { Background, Container, Logo, Menu } from "./styles";
 
 export default function Home(){
     const navigation = useNavigation();
+    const { setPerdido } = useContext(AuthContext);
+
+    function handlePerdido(){
+        setPerdido(true);
+        navigation.navigate('Perdido');
+    }
+
+    function handleEncontrado(){
+        setPerdido(false);
+        navigation.navigate('Encontrado');
+    }    
 
     return(
         <Background>
@@ -18,11 +30,12 @@ export default function Home(){
                     <MenuItem 
                         title="Reportar animal perdido" 
                         iconName="search" 
-                        onPress={() => navigation.navigate('Perdido')}
+                        onPress={() => handlePerdido()}
                     />
                     <MenuItem 
                         title="Reportar animal avistado" 
-                        iconName="eye" 
+                        iconName="eye"
+                        onPress={() => handleEncontrado()}                         
                     />
                     <MenuItem 
                         title="Avistamentos reportados" 

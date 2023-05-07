@@ -2,7 +2,7 @@ import React from "react";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from "../pages/Home";
-import Perdido from '../pages/Perdido';
+import Cadastro from '../pages/Cadastro';
 
 const AppStack = createNativeStackNavigator();
 
@@ -19,11 +19,18 @@ function AppRoutes(){
             />
             <AppStack.Screen 
                 name='Perdido' 
-                component={Perdido} 
+                component={Cadastro} 
                 options={{
                     title: 'Reportar animal perdido'
                 }}
-            />            
+            />
+            <AppStack.Screen 
+                name='Encontrado' 
+                component={Cadastro} 
+                options={{
+                    title: 'Reportar animal encontrado'
+                }}
+            />                           
         </AppStack.Navigator>
     )
 }

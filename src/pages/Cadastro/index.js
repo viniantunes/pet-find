@@ -14,16 +14,17 @@ import {
 import * as ImagePicker from 'expo-image-picker';
 import { TextInputMask } from 'react-native-masked-text'
 
-export default function Perdido(){
+export default function Cadastro(){
     const [foto, setFoto] = useState(null);
     const [nome, setNome] = useState('');
     const [descricao, setDescricao] = useState('');
     const [vistoUltimo, setVistoUltimo] = useState('');
     const [contato, setContato] = useState('');
-    const { setAnimaisPerdidos } = useContext(AuthContext);
+    const { isPerdido, setAnimaisPerdidos, setAnimaisEncontrados } = useContext(AuthContext);
 
     function handleCadastrar(){
-        setAnimaisPerdidos([{ nome: nome, descricao: descricao, vistoUltimo: vistoUltimo, contato: contato, foto: foto}]);
+        var registro = { nome: nome, descricao: descricao, vistoUltimo: vistoUltimo, contato: contato, foto: foto};
+        isPerdido ? setAnimaisPerdidos(registro) : setAnimaisEncontrados(registro);
         alert('CADASTRADO!');
     }
 

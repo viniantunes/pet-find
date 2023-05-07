@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 export const Background = styled.View`
     flex: 1;
-    background-color: #f6f6f6
+    background-color: #f6f6f6;
 `;
 
 export const Container = styled.KeyboardAvoidingView`
@@ -11,8 +11,14 @@ export const Container = styled.KeyboardAvoidingView`
     padding-top: 40px;
 `;
 
+export const AreaFoto = styled.View`
+   max-height : 300px;
+`;
+
 export const Foto = styled.Image`
     margin-bottom: 25px;
+    width: 300px;
+    height: 300px;
 `;
 
 export const AreaInput = styled.View`
@@ -42,10 +48,6 @@ export const OrangeButton = styled.TouchableOpacity`
 export const WhiteText = styled.Text`
     font-size: 20px;
     color: #fff
-`;
-
-export const AreaFoto = styled.View`
-   max-height : 300px;
 `;
 
 export const AreaDateTime = styled.View`

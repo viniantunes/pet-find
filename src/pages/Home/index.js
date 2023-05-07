@@ -39,7 +39,8 @@ export default function Home(){
                     />
                     <MenuItem 
                         title="Avistamentos reportados" 
-                        iconName="alert-triangle" 
+                        iconName="alert-triangle"
+                        onPress={() => navigation.navigate('Avistamentos')}
                     />
                     <MenuItem 
                         title="Meu anúncio" 

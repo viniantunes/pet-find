@@ -45,7 +45,7 @@ export default function Cadastro(){
         <Background>
             <Container behavior={Platform.OS === 'ios' ? 'padding' : ''} enabled >
                 <AreaFoto>
-                    {foto && <Foto source={{ uri: foto }} style={{ width: 300, height: 300 }} />}
+                    {foto && <Foto source={{ uri: foto }} />}
                 </AreaFoto>
                 <OrangeButton onPress={pickImage}>
                     <WhiteText>Selecione uma imagem</WhiteText>

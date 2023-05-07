@@ -43,6 +43,3 @@ export const SubmitText = styled.Text`
     font-size: 20px;
     color: #fff
 `;
-
-/* #dfb86b */
-/* #f06141 */

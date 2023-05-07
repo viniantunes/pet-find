@@ -5,7 +5,7 @@ export const AuthContext = createContext({});
 function AuthProvider({ children }){
     const [user, setUser] = useState(null);
     const userTeste = { nome: 'Teste' };
-    const [animaisPerdidos, setAnimaisPerdidos] = useState([]);
+    const [animaisPerdidos, setAnimaisPerdidos] = useState([{ nome: 'Dog', descricao: 'Teste', vistoUltimo: '01/01/01 14:30', contato: '(51) 99999-9999', foto: null}]);
     const [animaisEncontrados, setAnimaisEncontrados] = useState([]);
     const [isPerdido, setPerdido] = useState(false);
 

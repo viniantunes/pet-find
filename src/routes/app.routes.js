@@ -3,11 +3,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from "../pages/Home";
 import Cadastro from '../pages/Cadastro';
+import Avistamentos from "../pages/Avistamentos";
 
 const AppStack = createNativeStackNavigator();
 
 function AppRoutes(){
-    const registros = [];
     return(
         <AppStack.Navigator>
             <AppStack.Screen 
@@ -28,9 +28,16 @@ function AppRoutes(){
                 name='Encontrado' 
                 component={Cadastro} 
                 options={{
-                    title: 'Reportar animal encontrado'
+                    title: 'Reportar animal avistado'
                 }}
-            />                           
+            />
+            <AppStack.Screen 
+                name='Avistamentos' 
+                component={Avistamentos} 
+                options={{
+                    title: 'Avistamentos reportados'
+                }}
+            />                                        
         </AppStack.Navigator>
     )
 }

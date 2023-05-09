@@ -5,12 +5,12 @@ import { Area, Background, List } from './styles';
 import ListItem from "../../components/ListItem";
 
 export default function Avistamentos(){
-    const { animaisPerdidos, animaisEncontrados } = useContext(AuthContext);
+    const { listaAnimais } = useContext(AuthContext);
     return(
         <Background>
             <Area>
                 <List
-                    data={animaisPerdidos}
+                    data={listaAnimais}
                     keyExtractor={ item => item.nome }
                     renderItem={({item}) => <ListItem data={item}/>}
                     showsVerticalScrollIndicator={false}

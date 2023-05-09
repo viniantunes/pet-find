@@ -3,22 +3,28 @@ import styled from "styled-components";
 export const Container = styled.View`
     width: 100%;
     background-color: #e0e0e0;
+    flex-direction: row;
+    margin-bottom: 10px;
 `;
 
 export const AreaTexto = styled.View`
-    
+    justify-content: center;
 `;
 
-export const TextoPreto = styled.Text``;
+export const TextoPreto = styled.Text`
+    font-size: 20px;
+    font-weight: bold;
+`;
 
 export const AreaFoto = styled.View`
-   max-height : 200px;
+   height : 200px;
    width: 50%;
+   justify-content: center;
+   align-items: center;
+   padding: 5px;
 `;
 
 export const Foto = styled.Image`
-    margin-bottom: 25px;
+    width: 100%;
+    height: 100%;
 `;
-
-/* #dfb86b */
-/* #f06141 */

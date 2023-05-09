@@ -1,14 +1,15 @@
 import styled from "styled-components/native";
 
-export const Background = styled.View`
+export const Background = styled.KeyboardAvoidingView`
     flex: 1;
     background-color: #f6f6f6;
 `;
 
-export const Container = styled.KeyboardAvoidingView`
+export const Container = styled.SafeAreaView`
     flex: 1;
     align-items: center;
     padding-top: 40px;
+    justify-content: flex-end;
 `;
 
 export const AreaFoto = styled.View`
@@ -47,7 +48,7 @@ export const OrangeButton = styled.TouchableOpacity`
 
 export const WhiteText = styled.Text`
     font-size: 20px;
-    color: #fff
+    color: #fff;
 `;
 
 export const AreaDateTime = styled.View`

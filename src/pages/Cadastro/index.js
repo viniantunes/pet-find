@@ -12,7 +12,8 @@ import {
     AreaFoto
  } from './styles';
 import * as ImagePicker from 'expo-image-picker';
-import { TextInputMask } from 'react-native-masked-text'
+import { TextInputMask } from 'react-native-masked-text';
+import { useNavigation } from "@react-navigation/native";
 
 export default function Cadastro(){
     const [foto, setFoto] = useState(null);
@@ -20,12 +21,14 @@ export default function Cadastro(){
     const [descricao, setDescricao] = useState('');
     const [vistoUltimo, setVistoUltimo] = useState('');
     const [contato, setContato] = useState('');
-    const { isPerdido, setAnimaisPerdidos, setAnimaisEncontrados } = useContext(AuthContext);
+    const { isPerdido, listaAnimais, setListaAnimais } = useContext(AuthContext);
+    const navigation = useNavigation();
 
     function handleCadastrar(){
-        var registro = { nome: nome, descricao: descricao, vistoUltimo: vistoUltimo, contato: contato, foto: foto};
-        isPerdido ? setAnimaisPerdidos(registro) : setAnimaisEncontrados(registro);
+        var registro = { nome: nome, descricao: descricao, vistoUltimo: vistoUltimo, contato: contato, foto: foto, isPerdido: isPerdido };
+        setListaAnimais(listaAnimais => [...listaAnimais, registro]);
         alert('CADASTRADO!');
+        navigation.navigate('Home');
     }
 
     const pickImage = async () => {
@@ -35,15 +38,18 @@ export default function Cadastro(){
           aspect: [4, 3],
           quality: 1,
         });
-    
+
         if (!result.canceled) {
-          setFoto(result.assets[0].uri);
+            setFoto(result.assets[0].uri);
         }
       };
 
     return(
         <Background>
-            <Container behavior={Platform.OS === 'ios' ? 'padding' : ''} enabled >
+            <Container 
+                behavior={Platform.OS === 'ios' ? 'padding' : undefined} 
+                enabled 
+            >
                 <AreaFoto>
                     {foto && <Foto source={{ uri: foto }} />}
                 </AreaFoto>
@@ -93,6 +99,7 @@ export default function Cadastro(){
                 <OrangeButton activeOpacity={0.8} onPress={handleCadastrar}>
                     <WhiteText>Cadastrar</WhiteText>
                 </OrangeButton>
+                <Container />
             </Container>
         </Background>
     )

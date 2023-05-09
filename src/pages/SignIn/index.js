@@ -5,12 +5,12 @@ import { Background, Container, Logo, AreaInput, Input, SubmitButton, SubmitText
 import { AuthContext } from "../../contexts/auth";
 
 export default function SignIn(){
-    const [email, setEmail] = useState('');
+    const [usuario, setUsuario] = useState('');
     const [pass, setPass] = useState('');
     const { signIn } = useContext(AuthContext);
     
     function handleLogin(){
-        signIn(email, pass);
+        signIn(usuario, pass);
     }
 
     return (
@@ -19,9 +19,9 @@ export default function SignIn(){
                 <Logo source={require('../../assets/logo.png')} />
                 <AreaInput>
                     <Input 
-                        placeholder="Seu email" 
-                        value={email} 
-                        onChangeText={(text) => setEmail(text)} 
+                        placeholder="Seu usuário" 
+                        value={usuario} 
+                        onChangeText={(text) => setUsuario(text)} 
                     />
                 </AreaInput>
                 <AreaInput>

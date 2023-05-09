@@ -24,11 +24,32 @@ export default function Cadastro(){
     const { isPerdido, listaAnimais, setListaAnimais } = useContext(AuthContext);
     const navigation = useNavigation();
 
-    function handleCadastrar(){
-        var registro = { nome: nome, descricao: descricao, vistoUltimo: vistoUltimo, contato: contato, foto: foto, isPerdido: isPerdido };
+    function handleCadastrar(registro){
         setListaAnimais(listaAnimais => [...listaAnimais, registro]);
         alert('CADASTRADO!');
         navigation.navigate('Home');
+    }
+
+    function validate(){
+        var registro = { nome: nome, descricao: descricao, vistoUltimo: vistoUltimo, contato: contato, foto: foto, isPerdido: isPerdido };
+        const errors = [];
+        if(isPerdido){
+            !registro.foto ? errors.push('Escolha uma foto') : null;
+            !registro.nome ? errors.push('Informe o nome do animal') : null;
+        } else {
+            registro.nome ? setNome('Desconhecido') : null;
+        }
+        
+        !registro.descricao ? errors.push('Informe a descrição do animal') : null;
+        !registro.vistoUltimo ? errors.push('Informe a data e horário do último contato') : null;
+        !registro.contato ? errors.push('Informe um telefone para contato') : null;
+
+        if(errors.length){
+            alert(errors[0]);
+            return;
+        }
+
+        handleCadastrar(registro);
     }
 
     const pickImage = async () => {
@@ -96,7 +117,7 @@ export default function Cadastro(){
                         onChangeText={(text) => setContato(text)}
                     />
                 </AreaInput>                                
-                <OrangeButton activeOpacity={0.8} onPress={handleCadastrar}>
+                <OrangeButton activeOpacity={0.8} onPress={validate}>
                     <WhiteText>Cadastrar</WhiteText>
                 </OrangeButton>
                 <Container />

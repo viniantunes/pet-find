@@ -4,12 +4,11 @@ export const AuthContext = createContext({});
 
 function AuthProvider({ children }){
     const [user, setUser] = useState(null);
-    const userTeste = { nome: 'Teste' };
     const [listaAnimais, setListaAnimais] = useState([]);
     const [isPerdido, setPerdido] = useState(false);
 
-    function signIn(email, pass){
-        pass == 'teste' ? setUser(userTeste) : alert('Dados incorretos!');
+    function signIn(usuario, pass){
+        pass == 'teste' ? setUser({ nome: usuario }) : alert('Dados incorretos!');
     };
 
     function signOut(){

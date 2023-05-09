@@ -12,8 +12,7 @@ export const AreaTexto = styled.View`
 `;
 
 export const TextoPreto = styled.Text`
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 18px;
 `;
 
 export const AreaFoto = styled.View`
@@ -28,3 +27,10 @@ export const Foto = styled.Image`
     width: 100%;
     height: 100%;
 `;
+
+export const TextoTitulo = styled.Text`
+    font-size: 30px;
+    color: #f06141;
+    width: 100%;
+    margin-bottom: 20px;
+`

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, AreaFoto, TextoPreto, Foto, AreaTexto } from "./styles";
+import { Container, AreaFoto, TextoPreto, Foto, AreaTexto, TextoTitulo } from "./styles";
 
 export default function ListItem({ data }){
     var foto = '../../assets/no-image.png';
@@ -11,6 +11,7 @@ export default function ListItem({ data }){
                 {data.foto ? <Foto source={{ uri: data.foto}} /> : <Foto source={require(foto)} />}
             </AreaFoto>
             <AreaTexto>
+                <TextoTitulo> { data.isPerdido ? 'Perdido' : 'Avistado' } </TextoTitulo>
                 <TextoPreto> { data.nome } </TextoPreto>
                 <TextoPreto> { data.descricao } </TextoPreto>
                 <TextoPreto> { data.vistoUltimo } </TextoPreto>

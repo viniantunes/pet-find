@@ -2,11 +2,11 @@
 
 Projeto Integrador : DESENVOLVIMENTO DE SISTEMAS ORIENTADO A DISPOSITIVOS MÓVEIS E BASEADOS NA WEB criado por:
 
-Brenno Florencio dos Santos
-Thiago de Souza Bezerra
-Thiago Emanuel Cesar Gomes
-Vinicius Mendes Antunes
-William Mazotti da Silva
+- Brenno Florencio dos Santos
+- Thiago de Souza Bezerra
+- Thiago Emanuel Cesar Gomes
+- Vinicius Mendes Antunes
+- William Mazotti da Silva
 
 # Como instalar:
 

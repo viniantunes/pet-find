@@ -50,23 +50,3 @@ export const WhiteText = styled.Text`
     font-size: 20px;
     color: #fff;
 `;
-
-export const AreaDateTime = styled.View`
-    flex-direction: row;
-`
-
-export const DateTimeButton = styled.TouchableOpacity`
-    width: 40%;
-    height: 45px;
-    border-radius: 8px;
-    margin: 10px;
-    align-items: center;
-    justify-content: center;
-    background-color: #f06141;
-`;
-
-export const BlackText = styled.Text`
-    font-size: 20px;
-    color: #000;
-    margin-bottom: 10px;
-`

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from '../../contexts/auth';
 import { StyleSheet } from "react-native";
 import { 
@@ -21,17 +21,19 @@ export default function Cadastro(){
     const [descricao, setDescricao] = useState('');
     const [vistoUltimo, setVistoUltimo] = useState('');
     const [contato, setContato] = useState('');
-    const { isPerdido, listaAnimais, setListaAnimais } = useContext(AuthContext);
+    const { isPerdido, listaAnimais, setListaAnimais, anuncio, setAnuncio, id, setId } = useContext(AuthContext);
     const navigation = useNavigation();
 
     function handleCadastrar(registro){
+        setAnuncio(registro);
         setListaAnimais(listaAnimais => [...listaAnimais, registro]);
+        setId(id + 1);
         alert('CADASTRADO!');
         navigation.navigate('Home');
     }
 
     function validate(){
-        var registro = { nome: nome, descricao: descricao, vistoUltimo: vistoUltimo, contato: contato, foto: foto, isPerdido: isPerdido };
+        var registro = { id: id, nome: nome, descricao: descricao, vistoUltimo: vistoUltimo, contato: contato, foto: foto, isPerdido: isPerdido };
         const errors = [];
         if(isPerdido){
             !registro.foto ? errors.push('Escolha uma foto') : null;
@@ -65,6 +67,16 @@ export default function Cadastro(){
         }
       };
 
+
+      useEffect(() => {
+        if(anuncio){
+            setFoto(anuncio.foto);
+            setNome(anuncio.nome);
+            setDescricao(anuncio.descricao);
+            setVistoUltimo(anuncio.vistoUltimo);
+            setContato(anuncio.contato);
+        }
+      }, [])
     return(
         <Background>
             <Container 

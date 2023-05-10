@@ -11,7 +11,7 @@ export default function Avistamentos(){
             <Area>
                 <List
                     data={listaAnimais}
-                    keyExtractor={ item => item.nome }
+                    keyExtractor={ item => item.id }
                     renderItem={({item}) => <ListItem data={item}/>}
                     showsVerticalScrollIndicator={false}
                 />

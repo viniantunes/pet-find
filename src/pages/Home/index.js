@@ -44,7 +44,8 @@ export default function Home(){
                     />
                     <MenuItem 
                         title="Meu anúncio" 
-                        iconName="trello" 
+                        iconName="trello"
+                        onPress={() => navigation.navigate('Anuncio')}
                     />                                                            
                 </Menu>
             </Container>

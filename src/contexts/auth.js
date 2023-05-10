@@ -6,6 +6,8 @@ function AuthProvider({ children }){
     const [user, setUser] = useState(null);
     const [listaAnimais, setListaAnimais] = useState([]);
     const [isPerdido, setPerdido] = useState(false);
+    const [anuncio, setAnuncio] = useState(null);
+    const [id, setId] = useState(0);
 
     function signIn(usuario, pass){
         pass == 'teste' ? setUser({ nome: usuario }) : alert('Dados incorretos!');
@@ -18,7 +20,11 @@ function AuthProvider({ children }){
     return(
         <AuthContext.Provider value={{ 
             signed: !!user, 
-            user, 
+            user,
+            id,
+            setId,
+            anuncio,
+            setAnuncio, 
             signIn, 
             signOut, 
             listaAnimais,

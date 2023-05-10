@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from "../pages/Home";
 import Cadastro from '../pages/Cadastro';
 import Avistamentos from "../pages/Avistamentos";
+import Anuncio from "../pages/Anuncio";
 
 const AppStack = createNativeStackNavigator();
 
@@ -37,7 +38,14 @@ function AppRoutes(){
                 options={{
                     title: 'Avistamentos reportados'
                 }}
-            />                                        
+            />
+            <AppStack.Screen 
+                name='Anuncio' 
+                component={Anuncio} 
+                options={{
+                    title: 'Meu anúncio'
+                }}
+            />  
         </AppStack.Navigator>
     )
 }

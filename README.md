@@ -28,7 +28,7 @@ Abra sua loja de aplicativos, Apple Store ou Google Play, busque por 'Expo' e fa
 
 - Digite o comando: 'npm install' e aguarde o download e instalação das dependências do aplicativo.
 
-- Digite o comando 'npm expo start' para iniciar o app. Um QRCode aparecerá no Promp de comando assim que o App for iniciado.
+- Digite o comando 'npm start' para iniciar o app. Um QRCode aparecerá no Promp de comando assim que o App for iniciado.
 
 - Leia o QRCode com o celular onde o aplicativo Expo Go foi instalado no passo anterior.
 

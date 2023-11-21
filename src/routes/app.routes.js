@@ -3,8 +3,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from "../pages/Home";
 import Cadastro from '../pages/Cadastro';
+import Adocao from '../pages/Adocao';
 import Avistamentos from "../pages/Avistamentos";
 import Anuncio from "../pages/Anuncio";
+import AdoteMe from "../pages/AdoteMe";
 
 const AppStack = createNativeStackNavigator();
 
@@ -45,7 +47,21 @@ function AppRoutes(){
                 options={{
                     title: 'Meu anúncio'
                 }}
-            />  
+            />
+            <AppStack.Screen 
+                name='Adocao' 
+                component={Adocao} 
+                options={{
+                    title: 'Anunciar adocao'
+                }}
+            />
+            <AppStack.Screen 
+                name='AdoteMe' 
+                component={AdoteMe} 
+                options={{
+                    title: 'Adote-Me'
+                }}
+            />               
         </AppStack.Navigator>
     )
 }

@@ -5,7 +5,9 @@ export const AuthContext = createContext({});
 function AuthProvider({ children }){
     const [user, setUser] = useState(null);
     const [listaAnimais, setListaAnimais] = useState([]);
+    const [listaAdocao, setListaAdocao] = useState([]);
     const [isPerdido, setPerdido] = useState(false);
+    const [isAdocao, setAdocao] = useState(false);
     const [anuncio, setAnuncio] = useState(null);
     const [id, setId] = useState(0);
 
@@ -30,7 +32,11 @@ function AuthProvider({ children }){
             listaAnimais,
             setListaAnimais,
             isPerdido,
-            setPerdido 
+            setPerdido,
+            listaAdocao,
+            setListaAdocao,
+            isAdocao,
+            setAdocao 
         }}>
             {children}
         </AuthContext.Provider>

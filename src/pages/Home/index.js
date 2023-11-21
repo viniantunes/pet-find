@@ -9,16 +9,12 @@ import { Background, Container, Logo, Menu } from "./styles";
 
 export default function Home(){
     const navigation = useNavigation();
-    const { setPerdido } = useContext(AuthContext);
+    const { setPerdido, setAdocao } = useContext(AuthContext);
 
-    function handlePerdido(){
-        setPerdido(true);
-        navigation.navigate('Perdido');
-    }
-
-    function handleEncontrado(){
-        setPerdido(false);
-        navigation.navigate('Encontrado');
+    function handle(navigateTo){
+        setPerdido(navigateTo === 'Perdido');
+        setAdocao(navigateTo === 'Adocao');
+        navigation.navigate(navigateTo);
     }    
 
     return(
@@ -30,12 +26,12 @@ export default function Home(){
                     <MenuItem 
                         title="Reportar animal perdido" 
                         iconName="search" 
-                        onPress={() => handlePerdido()}
+                        onPress={() => handle('Perdido')}
                     />
                     <MenuItem 
                         title="Reportar animal avistado" 
                         iconName="eye"
-                        onPress={() => handleEncontrado()}                         
+                        onPress={() => handle('Encontrado')}                         
                     />
                     <MenuItem 
                         title="Avistamentos reportados" 
@@ -46,7 +42,17 @@ export default function Home(){
                         title="Meu anúncio" 
                         iconName="trello"
                         onPress={() => navigation.navigate('Anuncio')}
-                    />                                                            
+                    />
+                    <MenuItem 
+                        title="Anunciar adoção" 
+                        iconName="gitlab" 
+                        onPress={() => handle('Adocao')}
+                    />
+                    <MenuItem 
+                        title="Adote-me" 
+                        iconName="github" 
+                        onPress={() => navigation.navigate('AdoteMe')}
+                    />                                                                                                     
                 </Menu>
             </Container>
         </Background>

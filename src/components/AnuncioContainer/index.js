@@ -35,10 +35,10 @@ export default function AnuncioContainer(){
                 <AreaText>
                     <BlackText>{ anuncio.nome }</BlackText>
                     <BlackText>{ anuncio.descricao }</BlackText>
-                    <BlackText>{ anuncio.vistoUltimo }</BlackText>
+                    {anuncio.isAdocao ? null : <BlackText>{ anuncio.vistoUltimo }</BlackText> }
                     <BlackText>{ anuncio.contato }</BlackText>
                 </AreaText>
-                <SmallButton onPress={() => anuncio.isPerdido? navigation.navigate('Perdido') : navigation.navigate('Encontrado')}>
+                <SmallButton onPress={() => anuncio.isAdocao ? navigation.navigate('Adocao') : anuncio.isPerdido? navigation.navigate('Perdido') : navigation.navigate('Encontrado')}>
                     <Icon 
                         name='edit' 
                         size={30} 
@@ -60,7 +60,7 @@ export default function AnuncioContainer(){
                 </Button>
                 <Button activeOpacity={0.8} onPress={handleExcluir}>
                     <Icon name='check-circle' size={80} color='#121212' style={ {marginBottom:20}} />
-                    <BlackText>Encontrado</BlackText>
+                    { anuncio.isAdocao ? <BlackText>Adotado</BlackText> : <BlackText>Encontrado</BlackText> }
                 </Button>
             </AreaInfo>
         </Container>

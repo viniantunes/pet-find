@@ -1,3 +1,13 @@
+# Projeto Integrador - Grupo 36 - SENAC 2023/02 - Pet-Find - v2
+
+Projeto Integrador : ANÁLISE DE SOLUÇÕES INTEGRADAS PARA ORGANIZAÇÕES criado por:
+
+- Kervens Georges
+- Luiz Gustavo Barbosa de Castro Bizerra
+- Mateus Oliveira de Paula
+- Thales Reis Furtado
+- Vinicius Mendes Antunes
+
 # Projeto Integrador - Grupo 35 - SENAC 2023/01 - Pet-Find
 
 Projeto Integrador : DESENVOLVIMENTO DE SISTEMAS ORIENTADO A DISPOSITIVOS MÓVEIS E BASEADOS NA WEB criado por:
